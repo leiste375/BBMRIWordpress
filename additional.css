@@ -1,0 +1,239 @@
+/*Automatically center embedded youtube videos site-wide.*/
+iframe[src*="//youtube.com/"], iframe[src*="//www.youtube.com/"] {
+display: block;
+margin: 0 auto;
+}
+
+/*Youtube CSS for smartphones*/
+/* Mobile Youtube */
+@media screen and (max-width:767px) {
+iframe[src*="youtube"] {
+    width: 100% !important;
+}
+}
+
+/*General Options SFL*/
+#eeSFL {
+	width: 75%;
+	margin: 0 auto;
+	font-style: normal;
+	--ee-color-action-link-background: var(--main-orange);
+	--ee-color-action-link-text: var(--white);
+	--ee-color-action-link-background-hover: var(--black);
+}
+
+/*Choose Folder width*/
+#eeSFL_MoveToFolder {
+	width: 50% !important;
+}
+
+/*Move Folder Dropdown Menu*/
+#eeSFL_MoveToFolder {
+	max-width: 75%;
+	width: 50%;
+}
+
+/*Navigation - Current directory*/
+.eeSFL_BreadCrumb .eeSFL_Crumb:last-child {
+	border-radius: 3px;
+	background-color: var(--main-black);
+	border-color: var(--main-black);
+	color: var(--white);
+}
+
+/*Table Header*/
+#eeSFL .eeFiles th{
+	text-align: center !important;
+	background-color: var(--main-blue);
+	color: var(--white);
+	white-space: nowrap;
+}
+
+/* Table cells */ 
+#eeSFL .eeFiles td {
+	text-overflow: clip;
+        vertical-align: middle;
+        text-align: center;
+}
+
+/*Table Filename*/
+#eeSFL .eeFiles th.eeSFL_FileName {
+	text-align: left !important;
+	padding-left: 2%;
+}
+
+/*Table Thumnail Header*/
+#eeSFL .eeFiles th.eeSFL_Thumbnail {
+	padding-left: 1.55%;
+}
+
+/*Bulk Edit Header & Cell*/
+#eeSFL .eeFiles .eeSFL_BulkEdit {
+	padding-left: 1%;
+	overflow: visible;
+}
+
+/*File Names Cell*/
+#eeSFL .eeFiles td.eeSFL_FileNameCell {
+	text-align: left;
+	padding-left: 2%;
+}
+
+/*Thumbnail Cell*/
+#eeSFL .eeFiles td.eeSFL_Thumbnail {
+	padding-left: 1.55%;
+	overflow: visible;
+}
+
+/*Screen Size adjustments*/
+@media only screen and (max-width:1080px){
+	#eeSFL {
+	width: 80%;
+	}
+	#eeSFL .eeFiles .eeSFL_Thumbnail {
+	width: auto;
+	}
+	#eeSFL .eeFiles .eeSFL_Thumbnail img {
+			width: 48px;
+	}
+	#eeSFL .eeFiles td.eeSFL_FileNameCell {
+	text-align: left;
+	padding-left: 4%;
+	}
+	#eeSFL .eeFiles th.eeSFL_FileName {
+	text-align: left;
+	padding-left: 4%;
+	}
+}
+
+/*Smartphone Adjustments*/
+@media only screen and (max-width:640px){
+	#eeSFL {
+		width: 98%;
+	}
+	#eeSFL_UploadForm {
+		width: 98% !important;
+	}
+	#eeSFL .eeFiles td.eeSFL_BulkEdit {
+		padding-left: 0em;
+	}
+	#eeSFL .eeFiles td.eeSFL_Thumbnail {
+		padding-left: 0em;
+	}
+	#eeSFL .eeFiles td.eeSFL_FileNameCell {
+		padding-left: 0em;
+  }
+	#eeSFL .eeSFL_ListOpsBar form {
+		flex-wrap: wrap;
+	}
+	#eeSFL .eeSFL_ListOpsBar {
+			margin: 0.5em 0 0.5em 0;
+	}
+	#eeSFL_FileOpsAction {
+		margin-right: unset !important;
+		margin-bottom: .5em;
+	}
+	#eeSFL .eeFiles tr {
+		border: 1px solid #999 !important;
+	}
+	#eeSFL .eeFiles{
+		align-items: center !important;
+		justify-content: center !important;
+		text-align: center !important;
+	}
+	#eeSFL .eeSFL_ListFileActions {
+		margin: 0;
+		padding: 0 0 0 0;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	#eeSFL table.eeFiles .eeSFL_ListFileActions > a {
+		padding: 0.2em 0.2em 0.2em 0.2em !important;
+	}
+}
+
+/*Action Buttons*/
+#eeSFL a {
+	font-size: 100%;
+}
+
+/* Upload Form Style */
+#eeSFL_UploadForm {
+	width: 75%;
+	margin: 0 auto !important;
+	border: 1px solid #999 !important;
+		--ee-color-upload-progress-bar: var(--main-blue) !important;
+	--ee-color-upload-progress-bar-background: var(--main-blue) !important;
+}
+
+/*The only setting that correctly propagates*/
+#eeSFL_UploadProgress {
+	background: var(--main-blue) !important;
+}
+
+/*Remove Upload Form Title*/
+#eeSFL_UploadForm h2 {
+	display: none;
+}
+
+/*Drag n' Drop Style*/
+#eeSFL_FileDropZone {
+	border: none !important;
+	padding-bottom: 0em !important;
+	margin-top: 1em !important;
+}
+
+/*Fix business card formatting on smartphones*/
+@media only screen and (max-width:625px){
+	.staffBox_inner {
+		padding: 30px 0 0 0;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
+	.part_img_staff{
+		margin-right: 0;
+	}
+	.part_text_staff{
+		margin-right: 15px;
+		margin-left: 15px;
+		width: auto;
+	}
+	.page-id-94 .btnBox {
+		align-items: center;
+		justify-content: center;
+		padding-bottom: 30px;
+	}
+}
+
+/*News banner adjustments*/
+.news_banner_span {
+	color: var(--white);
+}
+.content-row-news_banner {
+	height: 45px;
+}
+.news_disp_arr {
+	top: 12.5px;
+}
+
+/*News Sidebar Adjustments*/
+.sidebar_excerpt {
+	font-size: 15px;
+}
+.sidebar_heading {
+	color: var(--main-blue)
+}
+
+/*Projects CSS*/
+.contentPart_inner.contentPart_inner_projects_display{
+	width: auto;
+}
+.projects_datafield_row .datafield_title{
+	max-width: 20% !important;
+}
+
+/*Header offset for HTML Anchors*/
+.content-row-single_heading {
+	scroll-margin-top: 120px;
+}
