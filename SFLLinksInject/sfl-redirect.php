@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: BBMRI Plugin
-Description: Handle URLs created by SFL to avoid issues using DomainFactory CDN, as well as provide JS for anchors.
-Version: 1.1.94
+Description: Handle URLs created by SFL to avoid issues using DomainFactory CDN.
+Version: 1.2
 Author: Leiner Stefan
 */
 
