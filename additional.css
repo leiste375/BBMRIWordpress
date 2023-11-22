@@ -162,7 +162,7 @@ iframe[src*="youtube"] {
 	width: 75%;
 	margin: 0 auto !important;
 	border: 1px solid #999 !important;
-		--ee-color-upload-progress-bar: var(--main-blue) !important;
+	--ee-color-upload-progress-bar: var(--main-blue) !important;
 	--ee-color-upload-progress-bar-background: var(--main-blue) !important;
 }
 
