@@ -6,14 +6,13 @@ Version: 1.3
 Author: Leiner Stefan
 */
 
-// Enqueue JavaScript file for the plugin
-
+// Enqueue JS
 function inject_script() {
     wp_enqueue_script('url-replacer-script', plugins_url('/js/url-replace.js', __FILE__), array('jquery'), '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'inject_script');
 
-//Define an array for all URLs. Please note that the first 6 entries are for testing purposes.
+//Define an array for all URLs.
 function bbmri_redirect() {
     $redirects = array(
         '/documents(.*)' => 'https://old.bbmri.at/documents$1',
@@ -48,15 +47,11 @@ function bbmri_redirect() {
         '/contact' => 'https://bbmri.at/contact/',
     );
 
-    //Read requested URL
+    //Handle wildcards & perform 301 redirect for matching URLs.
     $requested_url = $_SERVER['REQUEST_URI'];
-
-    //Handle wildcards. 
     foreach ($redirects as $from => $to) {
         $pattern = str_replace('/', '\/', $from);
         $pattern = preg_replace('/\(\.\*\)/', '(.*)', $pattern);
-
-        //Match URL, include captured value from wildcard and perform a 301 redirect. 
         if (preg_match('/^' . $pattern . '$/', $requested_url, $matches)) {
             $redirect_url = preg_replace('/\$1/', $matches[1], $to); 
             wp_redirect($redirect_url, 301);
