@@ -1,22 +1,22 @@
-Simple File List:
-	SFL not playing nice with DF CDN. Working links injected via Plugin/JS.
+Simple File List:\
+	&emsp;SFL not playing nice with DF CDN. Working links injected via Plugin/JS.
 
 301 Redirects handled via plugin.
 
-News Sidebar, hardcoded via Theme:
-	BBMRI Theme -> page.php, Ln42: 5
- 	Category set page-wise via GUI
+News Sidebar, hardcoded via Theme:\
+	&emsp;BBMRI Theme -> page.php, Ln42: 5\
+ 	&emsp;Category set page-wise via GUI
 
 CSS set via Dashboard: Appearance -> Customizer -> Additional CSS
 
-Youtube Embeddings:
-	Settings ACF:
-	Field Group:		Youtube
-	Fields:
-        	Field Type:	Text
-            	Field Name:	youtube_url
-	Numerical fields for yt_width & yt_height. Restrictions set via plugin effectively don't work(?)
-	Rules:			Block equals Youtube
+Youtube Embeddings:\
+	&emsp;Settings ACF:\
+		&emsp;Field Group:		&emsp;Youtube\
+		&emsp;Fields:\
+	        	&emsp;Field Type:	&emsp;Text\
+	            	&emsp;Field Name:	&emsp;youtube_url\
+		&emsp;Numerical fields for yt_width & yt_height. Restrictions set via plugin effectively don't work(?)\
+		&emsp;Rules:			&emsp;Block equals Youtube\
 ```
     Custom ACF Block defined in wp-contents/bbmri_theme/functions.php:
         add_action('acf/init', 'youtube_embed');
