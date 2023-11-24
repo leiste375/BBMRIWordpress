@@ -45,7 +45,7 @@ Youtube Embeddings:
             }
 ```
 Login Button added to header.php
-'''
+```
 	<div class="loginbutton loginbutton_mobile">
 		<!-- Login/Logout is added to Language button. -->
 		<?php if ( is_user_logged_in() ) {
@@ -54,4 +54,4 @@ Login Button added to header.php
 			echo '<a href="../login/">Login</a>';
 		} ?>
     </div>
-'''
+```
