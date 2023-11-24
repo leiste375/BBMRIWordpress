@@ -8,10 +8,11 @@ margin: 0 auto;
 /* Mobile Youtube */
 @media screen and (max-width:767px) {
 iframe[src*="youtube"] {
+    width: auto !important;
+    height: auto !important;
     width: 100% !important;
 }
 }
-
 /*General Options SFL*/
 #eeSFL {
 	width: 75%;
