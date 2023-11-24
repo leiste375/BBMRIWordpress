@@ -17,7 +17,7 @@ Youtube Embeddings:
             Field Name:         youtube_url
             Numerical fields for yt_width & yt_height. Restrictions set via plugin effectively don't work(?)
         Rules:                  Block equals Youtube
-'''
+```
     Custom ACF Block defined in wp-contents/bbmri_theme/functions.php:
         add_action('acf/init', 'youtube_embed');
             function youtube_embed() {
@@ -43,13 +43,15 @@ Youtube Embeddings:
                     ));
                 }
             }
-'''
+```
 Login Button added to header.php
-	`<div class="loginbutton loginbutton_mobile">
+'''
+	<div class="loginbutton loginbutton_mobile">
 		<!-- Login/Logout is added to Language button. -->
 		<?php if ( is_user_logged_in() ) {
 			echo '<a href="../wp-login.php?action=logout">Logout</a>';
 		} else {
 			echo '<a href="../login/">Login</a>';
 		} ?>
-    </div>`
+    </div>
+'''
