@@ -11,12 +11,12 @@ CSS set via Dashboard: Appearance -> Customizer -> Additional CSS
 
 Youtube Embeddings:\
 	&emsp;Settings ACF:\
-		&emsp;Field Group:		&emsp;Youtube\
-		&emsp;Fields:\
-	        	&emsp;Field Type:	&emsp;Text\
-	            	&emsp;Field Name:	&emsp;youtube_url\
-		&emsp;Numerical fields for yt_width & yt_height. Restrictions set via plugin effectively don't work(?)\
-		&emsp;Rules:			&emsp;Block equals Youtube\
+		&emsp;&emsp;Field Group: Youtube\
+		&emsp;&emsp;Fields:\
+	        	&emsp;&emsp;Field Type: Text\
+	            	&emsp;&emsp;Field Name: youtube_url\
+		&emsp;&emsp;Numerical fields for yt_width & yt_height. Restrictions set via plugin effectively don't work(?)\
+		&emsp;&emsp;Rules: Block equals Youtube\
 ```
     Custom ACF Block defined in wp-contents/bbmri_theme/functions.php:
         add_action('acf/init', 'youtube_embed');
