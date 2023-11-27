@@ -1,17 +1,20 @@
 jQuery(document).ready(function($) {
-    //Read current domain. Base URL hardcoded to https://example.com/intranet/.
+    //Read current domain. Determine language and hardcode baseurl accordingly.
     const domain = window.location.host;
-    const baseurl = 'https://' + domain + '/home/intranet/';
+    const currentURL = window.location.href;
+    if (currentURL.includes("/de/")) {
+        var baseurl = 'https://' + domain + '/de/start/intranet-2/';
+    } else {
+        var baseurl = 'https://' + domain + '/home/intranet/';
+    }
 
-    if (window.location.href.indexOf(baseurl) !== -1) {
+    if (currentURL.indexOf(baseurl) !== -1) {
         $('a').each(function() {
             var currentHref = $(this).attr('href');
 
+            //Split URL and use latter part to construct working URL w/o CDN.
             if (currentHref.includes('/ee-get-file/') && currentHref.indexOf(baseurl) === -1) {
-                //Save string after ee-get-file.
                 var urlParts = currentHref.split('/ee-get-file/');
-                
-                //Construct URL to forego CDN.
                 var newHref = 'https://' + domain + '/ee-get-file/' + urlParts[1];
                 $(this).attr('href', newHref);
             }
