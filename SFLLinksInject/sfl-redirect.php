@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: BBMRI Plugin
-Description: Handle URLs created by SFL to avoid issues using DomainFactory CDN. 301 Redirects are also handled here.
-Version: 1.3
+Description: Handle URLs created by SFL to avoid issues using DomainFactory CDN. 301 Redirects are also handled here, as well as Login Page mods.
+Version: 1.4.1
 Author: Leiner Stefan
 */
 
@@ -11,6 +11,30 @@ function inject_script() {
     wp_enqueue_script('url-replacer-script', plugins_url('/js/url-replace.js', __FILE__), array('jquery'), '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'inject_script');
+
+//Modify Login Page. Source: https://codex.wordpress.org/Customizing_the_Login_Form
+function my_login_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/svg/icon_from_logo.svg);
+		height:80px;
+		width:80px;
+		background-size: 80px 80px;
+		background-repeat: no-repeat;
+        	padding-bottom: 0px;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+function my_login_logo_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+function my_login_logo_url_title() {
+    return 'BBMRI.at';
+}
+add_filter( 'login_headertext', 'my_login_logo_url_title' );
 
 //Define an array for all URLs.
 function bbmri_redirect() {
