@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
     //Read current domain. Base URL hardcoded to https://example.com/intranet/.
     const domain = window.location.host;
-    const baseurl = 'https://' + domain + '/intranet/';
+    const baseurl = 'https://' + domain + '/home/intranet/';
 
     if (window.location.href.indexOf(baseurl) !== -1) {
         $('a').each(function() {
