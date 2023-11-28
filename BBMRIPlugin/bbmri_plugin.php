@@ -2,22 +2,41 @@
 /*
 Plugin Name: BBMRI Plugin
 Description: Handle URLs created by SFL to avoid issues using DomainFactory CDN. 301 Redirects are also handled here, as well as Login Page mods.
-Version: 1.4.3
+Version: 1.4.4
 Author: Leiner Stefan
 */
 
-// If Page is Intranet (intranet-2 refers to Page in German Menu), then check if user is authenticated and inject links
+/* If Page is Intranet (intranet-2 refers to german page), then check if user is authenticated and inject links. 
+enqueue_script is necessary to execute JS after page has loaded. Page check inside function is necessary as slug is not read outside.*/
 function intranet_stuff() {
     if ( is_page('intranet') || is_page('intranet-2') ) {
         if (!is_user_logged_in()) {
             auth_redirect();
         } else {
-            echo "<script>console.log('INTRANET DETECTED');</script>";
             wp_enqueue_script('url-replacer-script', plugins_url('/js/url-replace.js', __FILE__), array('jquery'), '1.0', true);
         }
     }
 }
 add_action('template_redirect', 'intranet_stuff');
+
+
+/*Redirect users after login except admins (Source: https://stackoverflow.com/questions/8127453/redirect-after-login-on-wordpress). 
+Check if intranet page exists, and retrieve Post ID based on language. Redirect all non-admins to correct page.*/
+function login_redirect_plugin($redirect_to, $request, $user) {
+    if (is_array($user->roles) && in_array('administrator', $user->roles)) {
+        return admin_url();
+    } elseif ( function_exists('pll_get_post') ) {
+        $intranet_page = get_page_by_path('/home/intranet');
+        if ($intranet_page) {
+            $post_id = pll_get_post($intranet_page->ID);
+            return get_permalink($post_id);
+        }
+    } else {
+        return home_url();
+    }
+}
+add_filter('login_redirect', 'login_redirect_plugin', 10, 3);
+
 
 //Modify Login Page. Source: https://codex.wordpress.org/Customizing_the_Login_Form
 function my_login_logo() { ?>
@@ -42,7 +61,6 @@ function my_login_logo_url_title() {
     return 'BBMRI.at';
 }
 add_filter('login_headertext', 'my_login_logo_url_title');
-
 
 
 //Define an array for all URLs. Tested but deactivated until launch.
@@ -97,5 +115,4 @@ function bbmri_redirect() {
     }
 }
 add_action('template_redirect', 'bbmri_redirect');
-
 ?>
