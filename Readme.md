@@ -44,14 +44,14 @@ Youtube Embeddings:\
                 }
             }
 ```
-Login Button added to header.php
+Login Button added to header.php (same code inserted twice, for desktop & mobile respectively)
 ```
 	<div class="loginbutton loginbutton_mobile">
 		<!-- Login/Logout is added to Language button. -->
 		<?php if ( is_user_logged_in() ) {
-			echo '<a href="../wp-login.php?action=logout">Logout</a>';
+			echo '<a href="/wp-login.php?action=logout">Logout</a>';
 		} else {
-			echo '<a href="../login/">Login</a>';
+			echo '<a href="/login/">Login</a>';
 		} ?>
     </div>
 ```
