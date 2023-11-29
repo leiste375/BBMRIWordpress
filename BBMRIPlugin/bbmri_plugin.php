@@ -23,7 +23,9 @@ add_action('template_redirect', 'intranet_stuff');
 /*Redirect users after login except admins (Source: https://stackoverflow.com/questions/8127453/redirect-after-login-on-wordpress). 
 Check if intranet page exists, and retrieve Post ID based on language. Redirect all non-admins to correct page.*/
 function login_redirect_plugin($redirect_to, $request, $user) {
-    if (is_array($user->roles) && in_array('administrator', $user->roles)) {
+    if ( is_array($user->roles) && in_array('administrator', $user->roles) ) {
+        return admin_url();
+    } elseif ( is_array($user->roles) && in_array('editor', $user->roles) ) {
         return admin_url();
     } elseif ( function_exists('pll_get_post') ) {
         $intranet_page = get_page_by_path('/home/intranet');
