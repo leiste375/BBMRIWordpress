@@ -1,8 +1,8 @@
 Simple File List:\
-	&emsp;SFL not playing nice with DF CDN. Working links injected via Plugin/JS.
-	&emsp;File Types restricted. See upload field, or plugin config for a complete list. Individual uploads restricted to 10 files & 50MB. 
- 	&emsp;User Role "below" Editor redirected to Intranet Page after login via plugin. Non-authenticated users are redirected to login page when accessing intranet page. Fileshare Table only shown to logged in users, when redirect is circumvented.
-	&emsp;News Archive publicly available. 
+	&emsp;SFL not playing nice with DF CDN. Working links injected via Plugin/JS.\
+	&emsp;File Types restricted. See upload field, or plugin config for a complete list. Individual uploads restricted to 10 files & 50MB.\
+ 	&emsp;User Role "below" Editor redirected to Intranet Page after login via plugin. Non-authenticated users are redirected to login page when accessing intranet page. Fileshare Table only shown to logged in users, when redirect is circumvented.\
+	&emsp;News Archive publicly available.\
  
 301 Redirects handled via plugin.
 
