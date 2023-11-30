@@ -2,7 +2,7 @@
 /*
 Plugin Name: BBMRI Plugin
 Description: Handle URLs created by SFL to avoid issues using DomainFactory CDN. 301 Redirects are also handled here, as well as Login Page mods.
-Version: 1.4.4
+Version: 1.5.4
 Author: Leiner Stefan
 */
 
@@ -64,16 +64,17 @@ function my_login_logo_url_title() {
 }
 add_filter('login_headertext', 'my_login_logo_url_title');
 
-
 //Define an array for all URLs. Tested but deactivated until launch.
 function bbmri_redirect() {
     $redirects = array(
         '/documents(.*)' => 'https://old.bbmri.at/documents$1',
         '/webdav(.*)' => 'https://old.bbmri.at/webdav$1',
+        '/login(.*)' => 'https://bbmri.at/wp-login.php',
+        '/fr/group(.*)' => 'https://bbmri.at/wp-login.php',
         '/news/-/asset_publisher/(.*)' => 'https://old.bbmri.at/news/-/asset_publisher/$1',
         '/archive' => 'https://old.bbmri.at/archive',
-        '/news/' => 'https://bbmri.at/news-events/',
-        '/catalog/' => 'https://bbmri.at/for-researchers/',
+        '/news' => 'https://bbmri.at/news-events/',
+        '/catalog' => 'https://bbmri.at/for-researchers/',
         '/biobank-cohorts' => 'https://bbmri.at/for-researchers/biobank-cohorts/',
         '/quality-management' => 'https://bbmri.at/for-researchers/quality-management/',
         '/calculator1' => 'https://bbmri.at/for-researchers/cost-calculator/',
@@ -87,6 +88,7 @@ function bbmri_redirect() {
         '/links' => 'https://bbmri.at/home/links/',
         '/for-patients' => 'https://bbmri.at/for-citizens/',
         '/biobanken' => 'https://bbmri.at/for-citizens/about-bbmri-at/',
+        '/de/biobanken' => 'https://bbmri.at/de/fuer-buerger/ueber-biobanken/',
         '/about-biobanks' => 'https://bbmri.at/for-citizens/about-biobanks/',
         '/citizen-expert-panel' => 'https://bbmri.at/for-citizens/citizen-expert-panel/',
         '/faq' => 'https://bbmri.at/for-citizens/faq/',
