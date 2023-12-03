@@ -3,7 +3,7 @@
 Plugin Name: BBMRI Plugin
 Description: Handle URLs created by SFL to avoid issues using DomainFactory CDN. 301 Redirects are also handled here, as well as Login Page mods.
 Version: 1.5.4
-Author: Leiner Stefan
+Author: leiste375
 */
 
 /* If Page is Intranet (intranet-2 refers to german page), then check if user is authenticated and inject links. 
