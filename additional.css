@@ -265,10 +265,11 @@ iframe[src*="youtube"] {
 .contentPart_inner.contentPart_inner_projects_display{
 	width: auto;
 }
-.projects_datafield_row .datafield_title{
-	max-width: 20% !important;
+@media only screen and (min-width: 991px) {
+	.projects_datafield_row .datafield_title, .datafield_title {
+		max-width: 25%;
+	}
 }
-
 /*Header offset for HTML Anchors*/
 .content-row-single_heading {
 	scroll-margin-top: 120px;
