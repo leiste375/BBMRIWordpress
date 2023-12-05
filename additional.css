@@ -260,7 +260,12 @@ iframe[src*="youtube"] {
 .sidebar_heading {
 	color: var(--main-blue)
 }
-
+/*Banner Logo overflow bugfix*/
+@media only screen and (max-width: 640px) {
+	.banner_logo {
+		display: none;
+	}
+}
 /*Projects CSS*/
 .contentPart_inner.contentPart_inner_projects_display{
 	width: auto;
