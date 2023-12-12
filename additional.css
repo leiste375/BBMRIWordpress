@@ -42,6 +42,11 @@ iframe[src*="youtube"] {
 #eeSFL input[type="submit"]:hover {
 	background: var(--black)
 }
+/*Hide Option to delete directories*/
+#eeSFL_FileOpsAction .eeWarning {
+	display: none;
+}
+
 /*Navigation - Current directory*/
 .eeSFL_BreadCrumb .eeSFL_Crumb:last-child {
 	border-radius: 3px;
