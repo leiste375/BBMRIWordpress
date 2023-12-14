@@ -42,7 +42,9 @@ iframe[src*="youtube"] {
 {
 	height: inherit;
 }
-
+#eeSFL .eeSFL_ListOpsBar input[type="submit"] {
+	padding-top: .25em;
+}
 /*Move Folder Dropdown Menu*/
 #eeSFL_MoveToFolder {
 	max-width: 75%;
@@ -56,7 +58,7 @@ iframe[src*="youtube"] {
 	height: inherit;
 }
 #eeSFL input[type="submit"]:hover {
-	background: var(--black)
+	background: var(--black);
 }
 /*Hide Option to delete directories*/
 #eeSFL_FileOpsAction .eeWarning {
@@ -65,15 +67,55 @@ iframe[src*="youtube"] {
 
 /*Navigation - Current directory*/
 .eeSFL_BreadCrumb .eeSFL_Crumb:last-child {
-	border-radius: 3px;
+	border-radius: 2px;
 	background-color: var(--main-black);
 	border-color: var(--main-black);
 	color: var(--white);
 }
 /*Edit Directory Options*/
 .eeSFL_Modal .eeSFL_ModalBody {
-	top: 15em;
+	top: 10em;
+	bottom: 1em;
+	border: 1px solid var(--black)
 } 
+
+.eeSFL_Modal .eeSFL_ModalBody button, .eeSFL_Modal .eeSFL_ModalBody input[type="submit"] {
+	background: var(--main-blue);
+	color: var(--white);
+	border-radius: 2px;
+	border: 1px solid var(--ee-color-table-border);
+	padding: .25em .3em .25em .3em;
+}
+.eeSFL_Modal .eeSFL_ModalBody button:hover {
+	background: var(--black);
+}
+.eeSFL_Modal .eeSFL_ModalBody p, .eeSFL_Modal .eeSFL_ModalBody h4 {
+	border-bottom: none;
+}
+.eeSFL_Modal .eeSFL_ModalBody h1, .eeSFL_Modal .eeSFL_ModalBody small {
+	display: none;
+}
+.eeSFL_Modal .eeSFL_ModalBody input[type="text"], .eeSFL_ModalBody textarea {
+	margin-bottom: 1.5em;
+}
+.eeSFL_Modal .eeSFL_DateNew {
+	margin-bottom: 2em;
+}
+
+#eeSFLS_paginationControls button, #eeSFL a.eeSFLS_PaginationIcon span.eeSFLS_iconCurrent {
+	border-radius: 2px;
+	background: var(--main-blue);
+	color: var(--white);
+	border: none;
+	padding: .25em .75em .25em .75em;
+}
+#eeSFLS_paginationControls button:hover {
+	background: var(--black);
+}
+#eeSFL a.eeSFLS_PaginationIcon:hover {
+	background: var(--main-blue);
+	color: var(--white);
+}
 
 /*Table*/
 #eeSFL table.eeFiles {
@@ -191,7 +233,6 @@ iframe[src*="youtube"] {
 #eeSFL a {
 	font-size: 100%;
 	border-radius: 2px;
-	
 }
 
 /* Upload Form Style */
@@ -221,7 +262,7 @@ iframe[src*="youtube"] {
 	color: var(--white);
 	background: var(--main-orange);
 	border: 1px solid var(--ee-color-table-border);
-	border-radius: 3px;
+	border-radius: 2px;
 	padding: .25em .3em .25em .3em;
 }
 #eeSFL_UploadForm button:hover{
