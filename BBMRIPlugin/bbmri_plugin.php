@@ -2,8 +2,8 @@
 /*
 Plugin Name: BBMRI Plugin
 Description: Handle URLs created by SFL to avoid issues using DomainFactory CDN. 301 Redirects are also handled here, as well as Login Page mods.
-Version: 1.5.4
-Author: leiste375
+Version: 1.6
+Author: MUG Internal
 */
 
 /* If Page is Intranet (intranet-2 refers to german page), then check if user is authenticated and inject links. 
@@ -119,4 +119,15 @@ function bbmri_redirect() {
     }
 }
 add_action('template_redirect', 'bbmri_redirect');
+
+//Redirect users if not logged in before File Access Manager executes. Action needs to be hooked directly into wp_loaded.
+function ee_check_authentication_after_wp_loads() {
+    if (strpos($_SERVER['REQUEST_URI'], '/ee-get-file/') !== false) {
+        if (!is_user_logged_in()) {
+            auth_redirect();
+            exit;
+        }
+    }
+}
+add_action('wp_loaded', 'ee_check_authentication_after_wp_loads');
 ?>
