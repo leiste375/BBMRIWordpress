@@ -22,9 +22,25 @@ iframe[src*="youtube"] {
 	--ee-color-action-link-background-hover: var(--black);
 }
 
-/*Choose Folder width*/
-#eeSFL_MoveToFolder {
-	width: 50% !important;
+#eeSFLS_SearchFiles {
+	padding: 0 0 0 0 !important;
+	height: 25px;
+	margin: 0 -.5em 0 0 !important;
+}
+#eeSFL #eeSFLS_SearchFiles input[type="text"], #eeSFL #eeSFLS_SearchFiles input[type="submit"] {
+	margin: 0 0.5em 0 0;
+	height: inherit;
+}
+
+.eeSFL_ListOpsBar form {
+	height: 25px !important;
+}
+#eeSFL_FileOpsAction {
+	height: inherit;
+}
+.eeSFL .eeSFL_ListOpsBar input[type="text"], .eeSFL .eeSFL_BulkDownloadBar input[type="text"], .eeSFL #eeSFL_MoveToFolder
+{
+	height: inherit;
 }
 
 /*Move Folder Dropdown Menu*/
@@ -37,7 +53,7 @@ iframe[src*="youtube"] {
 	background: var(--main-orange);
 	border: 1px solid var(--ee-color-table-border);
 	border-radius: 2px;
-	padding: .25em .3em .25em .3em;
+	height: inherit;
 }
 #eeSFL input[type="submit"]:hover {
 	background: var(--black)
@@ -54,6 +70,10 @@ iframe[src*="youtube"] {
 	border-color: var(--main-black);
 	color: var(--white);
 }
+/*Edit Directory Options*/
+.eeSFL_Modal .eeSFL_ModalBody {
+	top: 15em;
+} 
 
 /*Table*/
 #eeSFL table.eeFiles {
