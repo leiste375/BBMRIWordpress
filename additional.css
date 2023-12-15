@@ -120,6 +120,9 @@ iframe[src*="youtube"] {
 #eeSFL_FileOpsAction .eeWarning {
 	display: none;
 }
+td:nth-child(3) > small:nth-child(5) > a:nth-child(3), td:nth-child(3) > small:nth-child(6) > a:nth-child(3) {
+	display: none;
+}
 
 /*Navigation - Current directory*/
 .eeSFL_BreadCrumb .eeSFL_Crumb a {
@@ -255,6 +258,11 @@ iframe[src*="youtube"] {
 
 /*Smartphone Adjustments*/
 @media only screen and (max-width:640px){
+	
+	/*Temporarily remove Edit Button until Modal Page is fixed*/
+	td:nth-child(3) > small:nth-child(6) > a:nth-child(2), td:nth-child(3) > small:nth-child(6) > a:nth-child(2) {
+		display: none;
+	}
 	#eeSFL {
 		width: 98%;
 	}
@@ -270,15 +278,35 @@ iframe[src*="youtube"] {
 	#eeSFL .eeFiles td.eeSFL_FileNameCell {
 		padding-left: 0em;
   }
+	#eeSFL #eeSFLS_SearchFiles{
+		max-width: 98%;
+		margin: 0 .5em .5em .5em;
+	}
+	#eeSFL #eeSFLS_SearchFiles input.eeSFLS_Datepicker {
+		max-width: 45%;
+		margin: .5em 0 .5em .5em;
+	}
+	#eeSFL #eeSFLS_SearchFiles input[type="text"] {
+		margin: 0 .5em .5em .5em;
+		max-width: 45%;
+	}
+	#eeSFL #eeSFLS_SearchFiles input[type="submit"] {
+		flex: 2;
+		max-width: 45%;
+		margin: 0 .5em .5em .5em;
+	}
 	#eeSFL .eeSFL_ListOpsBar form {
 		flex-wrap: wrap;
+		margin-top: 1em;
 	}
-	#eeSFL .eeSFL_ListOpsBar {
-			margin: 0.5em 0 0.5em 0;
+	.eeSFL #eeSFL_FileOpsAction, .eeSFL #eeSFL_FileOpsActionInput, .eeSFL #eeSFL_MoveToFolder {
+		max-width: 45% !important;
+		min-width: 44% !important;
+		margin: 1.5em .9em .5em .5em;
 	}
-	#eeSFL_FileOpsAction {
-		margin-right: unset !important;
-		margin-bottom: .5em;
+	.eeSFL #eeSFL_ListOpsBarGo {
+		flex: 3
+		margin: 0 1em .75em .5em;
 	}
 	#eeSFL .eeFiles tr {
 		border: 1px solid #999 !important;
@@ -296,9 +324,12 @@ iframe[src*="youtube"] {
 	}
 	#eeSFL table.eeFiles .eeSFL_ListFileActions > a {
 		padding: 0.2em 0.2em 0.2em 0.2em !important;
-		
+	}
+	#eeSFL table {
+		margin-top: 6em;
 	}
 }
+
 /*Action Buttons*/
 #eeSFL a {
 	font-size: 100%;
