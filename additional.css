@@ -19,7 +19,33 @@ iframe[src*="youtube"] {
 	font-style: normal;
 	--ee-color-action-link-background: var(--main-orange);
 	--ee-color-action-link-text: var(--white);
-	--ee-color-action-link-background-hover: var(--black);
+	--ee-color-action-link-background-hover: var(--main-blue);
+}
+#eeSFL input[type="text"], .eeSFL_ModalBody input[type="text"], .eeSFL_ModalBody textarea, .eeSFL_DateNew input[type="number"] {
+	border-radius: 5px;
+	border: 1px solid var(--table-gray);
+	box-shadow: 0 0 2px 2px var(--table-gray);
+}
+#eeSFL input[type="text"]:hover, .eeSFL_ModalBody input[type="text"]:hover, .eeSFL_ModalBody textarea:hover, .eeSFL_DateNew input[type="number"]:hover {
+	border: 2px solid var(--main-orange);
+	box-shadow: 0 0 1px 1px var(--table-gray);
+	transition: .2s;
+}
+#eeSFL input[type="text"]:focus, .eeSFL_ModalBody input[type="text"]:focus, .eeSFL_ModalBody textarea:focus, .eeSFL_DateNew input[type="number"]:focus {
+	border: 2px solid var(--main-orange);
+	box-shadow: 0 0 2px 2px var(--main-orange);
+	transition: .2s;
+	outline: none;
+}
+.eeFiles input[type="checkbox"] {
+	color: var(--black);
+	border: 5px solid var(--black);
+	box-shadow: 0 0 1px var(--table-gray) !important;
+}
+.eeFiles input[type="checkbox"]:hover {
+		border: 2px solid var(--main-orange);
+	box-shadow: 0 0 1px 1px var(--table-gray);
+	transition: .2s;
 }
 
 #eeSFLS_SearchFiles {
@@ -44,7 +70,12 @@ iframe[src*="youtube"] {
 }
 #eeSFL .eeSFL_ListOpsBar input[type="submit"] {
 	padding-top: .25em;
+	transition: .4s;
 }
+#eeSFLS_SearchFiles input[type="submit"] {
+	transition: .4s;
+}
+
 /*Move Folder Dropdown Menu*/
 #eeSFL_MoveToFolder {
 	max-width: 75%;
@@ -54,11 +85,12 @@ iframe[src*="youtube"] {
 	color: var(--white);
 	background: var(--main-orange);
 	border: 1px solid var(--ee-color-table-border);
-	border-radius: 2px;
+	border-radius: 5px;
 	height: inherit;
 }
 #eeSFL input[type="submit"]:hover {
-	background: var(--black);
+	background: var(--main-blue);
+	transition: .4s;
 }
 /*Hide Option to delete directories*/
 #eeSFL_FileOpsAction .eeWarning {
@@ -66,11 +98,15 @@ iframe[src*="youtube"] {
 }
 
 /*Navigation - Current directory*/
+.eeSFL_BreadCrumb .eeSFL_Crumb a {
+	border-radius: 5px !important;
+}
 .eeSFL_BreadCrumb .eeSFL_Crumb:last-child {
-	border-radius: 2px;
+	border-radius: 5px;
 	background-color: var(--main-black);
 	border-color: var(--main-black);
 	color: var(--white);
+	transition: .4s;
 }
 /*Edit Directory Options*/
 .eeSFL_Modal .eeSFL_ModalBody {
@@ -82,18 +118,27 @@ iframe[src*="youtube"] {
 .eeSFL_Modal .eeSFL_ModalBody button, .eeSFL_Modal .eeSFL_ModalBody input[type="submit"] {
 	background: var(--main-blue);
 	color: var(--white);
-	border-radius: 2px;
+	border-radius: 5px;
 	border: 1px solid var(--ee-color-table-border);
 	padding: .25em .3em .25em .3em;
+	transition: .4s;
 }
 .eeSFL_Modal .eeSFL_ModalBody button:hover {
 	background: var(--black);
+	transition: .4s;
 }
 .eeSFL_Modal .eeSFL_ModalBody p, .eeSFL_Modal .eeSFL_ModalBody h4 {
 	border-bottom: none;
+	margin-bottom: 1em;
+}
+.eeSFL_Modal .eeSFL_ModalBody h4 {
+	font-size: 120%;
 }
 .eeSFL_Modal .eeSFL_ModalBody h1, .eeSFL_Modal .eeSFL_ModalBody small {
 	display: none;
+}
+.eeSFL_ModalBody label {
+	margin-bottom: .5em;
 }
 .eeSFL_Modal .eeSFL_ModalBody input[type="text"], .eeSFL_ModalBody textarea {
 	margin-bottom: 1.5em;
@@ -103,18 +148,21 @@ iframe[src*="youtube"] {
 }
 
 #eeSFLS_paginationControls button, #eeSFL a.eeSFLS_PaginationIcon span.eeSFLS_iconCurrent {
-	border-radius: 2px;
+	border-radius: 3px;
 	background: var(--main-blue);
 	color: var(--white);
 	border: none;
 	padding: .25em .75em .25em .75em;
+	transition: .4s;
 }
 #eeSFLS_paginationControls button:hover {
 	background: var(--black);
+	transition: .4s;
 }
 #eeSFL a.eeSFLS_PaginationIcon:hover {
 	background: var(--main-blue);
 	color: var(--white);
+	transition: .4s;
 }
 
 /*Table*/
@@ -173,11 +221,7 @@ iframe[src*="youtube"] {
 	#eeSFL .eeFiles .eeSFL_Thumbnail img {
 			width: 48px;
 	}
-	#eeSFL .eeFiles td.eeSFL_FileNameCell {
-	text-align: left;
-	padding-left: 4%;
-	}
-	#eeSFL .eeFiles th.eeSFL_FileName {
+	#eeSFL .eeFiles td.eeSFL_FileNameCell, 	#eeSFL .eeFiles th.eeSFL_FileName {
 	text-align: left;
 	padding-left: 4%;
 	}
@@ -232,9 +276,12 @@ iframe[src*="youtube"] {
 /*Action Buttons*/
 #eeSFL a {
 	font-size: 100%;
-	border-radius: 2px;
+	border-radius: 3px;
+	transition: .4s;
 }
-
+#eeSFL a:hover {
+	transition: .4s;
+}
 /* Upload Form Style */
 #eeSFL_UploadForm {
 	width: 75%;
@@ -262,12 +309,14 @@ iframe[src*="youtube"] {
 	color: var(--white);
 	background: var(--main-orange);
 	border: 1px solid var(--ee-color-table-border);
-	border-radius: 2px;
+	border-radius: 5px;
 	padding: .25em .3em .25em .3em;
+	transition: .4s;
 }
 #eeSFL_UploadForm button:hover{
-	background: var(--black);
+	background: var(--main-blue);
 	color: var(--white);
+	transition: .4s;
 }
 @media screen and (max-width:780px) {
 	#eeSFL_UploadForm p.sfl_instuctions {
@@ -347,11 +396,11 @@ iframe[src*="youtube"] {
 }
 
 /*Header*/
-.languagebox{
+.languagebox, .loginbutton{
     margin-right: 22.5px;
 }
-.loginbutton{
-	margin-right: 22.5px;
+.loginbutton a:hover {
+	color: var(--main-orange);
 }
 .loginbutton_mobile a,
 .loginbutton a{
