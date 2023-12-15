@@ -266,6 +266,15 @@ td:nth-child(3) > small:nth-child(5) > a:nth-child(3), td:nth-child(3) > small:n
 	#eeSFL {
 		width: 98%;
 	}
+	#eeSFL table {
+		margin-top: 2em;
+	}
+	.eeSFL table.eeFiles tbody {
+		padding: 0 0 0 0;
+	}
+	.eeSFL table.eeFiles tr {
+		margin-bottom: 1em !important;
+	}
 	#eeSFL_UploadForm {
 		width: 98% !important;
 	}
@@ -308,6 +317,9 @@ td:nth-child(3) > small:nth-child(5) > a:nth-child(3), td:nth-child(3) > small:n
 		flex: 3
 		margin: 0 1em .75em .5em;
 	}
+	.eeSFL_BreadCrumb {
+		margin-top: 5em;
+	}
 	#eeSFL .eeFiles tr {
 		border: 1px solid #999 !important;
 	}
@@ -324,9 +336,6 @@ td:nth-child(3) > small:nth-child(5) > a:nth-child(3), td:nth-child(3) > small:n
 	}
 	#eeSFL table.eeFiles .eeSFL_ListFileActions > a {
 		padding: 0.2em 0.2em 0.2em 0.2em !important;
-	}
-	#eeSFL table {
-		margin-top: 6em;
 	}
 }
 
