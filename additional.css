@@ -41,11 +41,6 @@ iframe[src*="youtube"] {
 	outline: none;
 }
 
-/*Checkbox*/
-/*Hide standard box*/
-table.eeFiles input[type="checkbox"] {
-
-}
 #eeSFLS_SearchFiles {
 	padding: 0 0 0 0 !important;
 	height: 25px;
@@ -76,7 +71,8 @@ table.eeFiles input[type="checkbox"] {
 .ui-widget {
 	font-family: inherit;
 	outline: none;
-	border: 1px solid var(--black) !important;
+	border: none !important;
+	box-shadow: 0 0 2px 2px var(--table-gray);
 } 
 .ui-widget-header {
 	border: none;
@@ -87,13 +83,12 @@ table.eeFiles input[type="checkbox"] {
 }
 .ui-state-active {
 	background: var(--main-orange) !important;
-	border: none !important;
-	box-shadow: 0 0 1px 1px var(--main-orange);
+	border: 1px solid var(--main-orange) !important;
 }
 .ui-state-highlight {
 	background: var(--main-blue) !important;
 	color: var(--white) !important;
-	border: none !important;
+	border: 1px solid var(--main-blue) !important;
 }
 .ui-datepicker td span, .ui-datepicker td a{
 	text-align: center;
@@ -104,6 +99,7 @@ table.eeFiles input[type="checkbox"] {
 	background: var(--main-orange);
 	transition: .4s;
 }
+
 /*Move Folder Dropdown Menu*/
 #eeSFL_MoveToFolder {
 	max-width: 75%;
@@ -131,8 +127,8 @@ table.eeFiles input[type="checkbox"] {
 }
 .eeSFL_BreadCrumb .eeSFL_Crumb:last-child {
 	border-radius: 5px;
-	background-color: var(--main-black);
-	border-color: var(--main-black);
+	background-color: var(--black);
+	border-color: var(--black);
 	color: var(--white);
 	transition: .4s;
 }
