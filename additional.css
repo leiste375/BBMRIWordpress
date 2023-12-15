@@ -140,7 +140,9 @@ td:nth-child(3) > small:nth-child(5) > a:nth-child(3), td:nth-child(3) > small:n
 .eeSFL_Modal .eeSFL_ModalBody {
 	top: 10em;
 	bottom: 1em;
-	border: 1px solid var(--black)
+	border: none;
+	box-shadow: 0 0 1px 1px var(--table-gray);
+	border-radius: 4px;
 } 
 
 .eeSFL_Modal .eeSFL_ModalBody button, .eeSFL_Modal .eeSFL_ModalBody input[type="submit"] {
