@@ -17,10 +17,13 @@ iframe[src*="youtube"] {
 	width: 75%;
 	margin: 0 auto;
 	font-style: normal;
+	font-family: var(--main-font);
 	--ee-color-action-link-background: var(--main-orange);
 	--ee-color-action-link-text: var(--white);
 	--ee-color-action-link-background-hover: var(--main-blue);
 }
+
+/*Input styles*/
 #eeSFL input[type="text"], .eeSFL_ModalBody input[type="text"], .eeSFL_ModalBody textarea, .eeSFL_DateNew input[type="number"] {
 	border-radius: 5px;
 	border: 1px solid var(--table-gray);
@@ -37,17 +40,12 @@ iframe[src*="youtube"] {
 	transition: .2s;
 	outline: none;
 }
-.eeFiles input[type="checkbox"] {
-	color: var(--black);
-	border: 5px solid var(--black);
-	box-shadow: 0 0 1px var(--table-gray) !important;
-}
-.eeFiles input[type="checkbox"]:hover {
-		border: 2px solid var(--main-orange);
-	box-shadow: 0 0 1px 1px var(--table-gray);
-	transition: .2s;
-}
 
+/*Checkbox*/
+/*Hide standard box*/
+table.eeFiles input[type="checkbox"] {
+
+}
 #eeSFLS_SearchFiles {
 	padding: 0 0 0 0 !important;
 	height: 25px;
@@ -57,7 +55,6 @@ iframe[src*="youtube"] {
 	margin: 0 0.5em 0 0;
 	height: inherit;
 }
-
 .eeSFL_ListOpsBar form {
 	height: 25px !important;
 }
@@ -75,7 +72,38 @@ iframe[src*="youtube"] {
 #eeSFLS_SearchFiles input[type="submit"] {
 	transition: .4s;
 }
-
+/*Calendar UI*/
+.ui-widget {
+	font-family: inherit;
+	outline: none;
+	border: 1px solid var(--black) !important;
+} 
+.ui-widget-header {
+	border: none;
+	background: none;
+}
+.ui-widget-content .ui-state-default {
+	background: var(--white);
+}
+.ui-state-active {
+	background: var(--main-orange) !important;
+	border: none !important;
+	box-shadow: 0 0 1px 1px var(--main-orange);
+}
+.ui-state-highlight {
+	background: var(--main-blue) !important;
+	color: var(--white) !important;
+	border: none !important;
+}
+.ui-datepicker td span, .ui-datepicker td a{
+	text-align: center;
+}
+.ui-widget-content .ui-state-hover {
+	border: none;
+	color: var(--white);
+	background: var(--main-orange);
+	transition: .4s;
+}
 /*Move Folder Dropdown Menu*/
 #eeSFL_MoveToFolder {
 	max-width: 75%;
@@ -108,7 +136,8 @@ iframe[src*="youtube"] {
 	color: var(--white);
 	transition: .4s;
 }
-/*Edit Directory Options*/
+
+/*Edit Menu/Page Style*/
 .eeSFL_Modal .eeSFL_ModalBody {
 	top: 10em;
 	bottom: 1em;
@@ -147,6 +176,7 @@ iframe[src*="youtube"] {
 	margin-bottom: 2em;
 }
 
+/*Page Navigation*/
 #eeSFLS_paginationControls button, #eeSFL a.eeSFLS_PaginationIcon span.eeSFLS_iconCurrent {
 	border-radius: 3px;
 	background: var(--main-blue);
