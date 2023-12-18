@@ -32,7 +32,7 @@ iframe[src*="youtube"] {
 #eeSFL input[type="text"]:hover, .eeSFL_ModalBody input[type="text"]:hover, .eeSFL_ModalBody textarea:hover, .eeSFL_DateNew input[type="number"]:hover {
 	border: 2px solid var(--main-orange);
 	box-shadow: 0 0 1px 1px var(--table-gray);
-	transition: .2s;
+	transition: .1s;
 }
 #eeSFL input[type="text"]:focus, .eeSFL_ModalBody input[type="text"]:focus, .eeSFL_ModalBody textarea:focus, .eeSFL_DateNew input[type="number"]:focus {
 	border: 2px solid var(--main-orange);
