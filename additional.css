@@ -117,8 +117,11 @@ iframe[src*="youtube"] {
 	transition: .4s;
 }
 /*Hide Option to delete directories*/
-#eeSFL_FileOpsAction .eeWarning {
+#eeSFL_FileOpsAction .eeWarning, table.eeFiles p.eeSFL_FileDesc {
 	display: none;
+}
+#eeSFL_FileOpsAction > option:nth-child(3) {
+	display: none !important;
 }
 td:nth-child(3) > small:nth-child(5) > a:nth-child(3), td:nth-child(3) > small:nth-child(6) > a:nth-child(3) {
 	display: none;
