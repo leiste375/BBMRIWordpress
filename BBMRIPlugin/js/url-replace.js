@@ -87,8 +87,8 @@ jQuery(document).ready(function($) {
         const modal_button1 = document.querySelector('.button[onclick="eeSFL_FileEditSaved()"]');
         const modal_button2 = document.querySelector('.eeSFL_ModalClose');
         if (modal_button1 && modal_button2) {
-            modal_button1.addEventListener('unknown', resetValidValue);
-            modal_button2.addEventListener('unknown', resetValidValue);
+            modal_button1.addEventListener('click', resetValidValue);
+            modal_button2.addEventListener('click', resetValidValue);
         } else {
             //console.log("Not found");
         }
