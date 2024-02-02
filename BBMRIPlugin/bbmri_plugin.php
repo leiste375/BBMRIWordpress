@@ -13,7 +13,7 @@ function intranet_stuff() {
         if (!is_user_logged_in()) {
             auth_redirect();
         } else {
-            wp_enqueue_script('url-replacer-script', plugins_url('/js/url-replace.js', __FILE__), array('jquery'), '1.0', true);
+            wp_enqueue_script('url-replacer-script', plugins_url('/js/url-replace.js', __FILE__), array('jquery'), '1.2', true);
         }
     }
 }
