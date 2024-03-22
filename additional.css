@@ -1,7 +1,7 @@
 /*Automatically center embedded youtube videos site-wide.*/
 iframe[src*="//youtube.com/"], iframe[src*="//www.youtube.com/"] {
-    display: block;
-    margin: 0 auto;
+display: block;
+margin: 0 auto;
 }
 
 /*Youtube CSS for smartphones*/
@@ -157,7 +157,7 @@ td:nth-child(3) > small:nth-child(5) > a:nth-child(3), td:nth-child(3) > small:n
 	transition: .4s;
 }
 .eeSFL_Modal .eeSFL_ModalBody button:hover {
-	background: var(--black);
+	background: var(--main-orange);
 	transition: .4s;
 }
 .eeSFL_Modal .eeSFL_ModalBody p, .eeSFL_Modal .eeSFL_ModalBody h4 {
@@ -190,11 +190,12 @@ td:nth-child(3) > small:nth-child(5) > a:nth-child(3), td:nth-child(3) > small:n
 	transition: .4s;
 }
 #eeSFLS_paginationControls button:hover {
-	background: var(--black);
+	background: var(--main-orange);
 	transition: .4s;
 }
-#eeSFL a.eeSFLS_PaginationIcon:hover {
-	background: var(--main-blue);
+#eeSFL a.eeSFLS_PaginationIcon:hover,
+#eeSFL a.eeSFLS_PaginationIcon span.eeSFLS_iconCurrent:hover {
+	background: var(--main-orange);
 	color: var(--white);
 	transition: .4s;
 }
@@ -491,4 +492,47 @@ td:nth-child(3) > small:nth-child(5) > a:nth-child(3), td:nth-child(3) > small:n
 	.site_searchform {
 		top: unset;
 	}
+}
+
+
+/*Additional UI elements*/
+.eeSFL_Move_UI_Class,
+.eeSFL_Move_UI_Msgs,
+.eeSFL_Move_UI_Nav,
+.eeSFL_Move_UI_Msgs_warn {
+	width: 100% !important;
+	display: flex;
+	flex-wrap: wrap;
+	margin: auto;
+	padding-top: 1em;
+}
+.eeSFL_Move_UI_Msgs,
+.eeSFL_Move_UI_Msgs_warn {
+	font-size: 14px;
+}
+.eeSFL_Move_UI_Nav button {
+	font-size: 16px !important;
+	background: var(--main-orange) !important;
+}
+.eeSFL_Move_UI_Nav button:hover {
+	background: var(--main-blue) !important;
+}
+.eeSFL_Move_UI_Class .Modal_Dir {
+	background: var(--white) !important;
+	color: var(--black) !important;
+	font-size: 13px !important;
+	border: 1px solid var(--border-gray) !important;
+	border-radius: 2px !important;
+	margin: .5em auto .5em auto;
+	width: 150px;
+	height: 100px;
+  overflow: hidden;
+  display: block;
+	line-height: 1.2em;
+}
+.eeSFL_Move_UI_Class .Modal_Dir:hover,
+.eeSFL_Move_UI_Class .Modal_Dir:focus {
+	border: 2px solid var(--main-orange) !important;
+	box-shadow: 0 0 2px 2px var(--main-orange);
+	transition: .2s !important;
 }
