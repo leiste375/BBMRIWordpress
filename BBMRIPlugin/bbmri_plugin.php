@@ -2,7 +2,7 @@
 /*
 Plugin Name: BBMRI Plugin
 Description: Handle URLs created by SFL to avoid issues using DomainFactory CDN. 301 Redirects are also handled here, as well as Login Page mods.
-Version: 1.6.9.13
+Version: 1.7.1
 Author: MUG Internal
 */
 
@@ -13,7 +13,7 @@ function intranet_stuff() {
         if (!is_user_logged_in()) {
             auth_redirect();
         } else {
-            wp_enqueue_script('url-replacer-script', plugins_url('/js/url-replace.js', __FILE__), array('jquery'), '1.2', true);
+            wp_enqueue_script('url-replacer-script', plugins_url('/js/url-replace.js', __FILE__), array('jquery'), '1.8.1', true);
         }
     }
 }
