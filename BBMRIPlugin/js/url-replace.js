@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
     //Read current domain. Base URL hardcoded.
-    let inputcheck = ['', 'eeSFL_FileNameNew']
+    //let inputcheck = ['', 'eeSFL_FileNameNew']
     const domain = window.location.host;
     const currentURL = window.location.href;
     if (currentURL.includes("/de/")) {
@@ -126,7 +126,7 @@ function update_move_ui_nav_bar(lvl, lower_bound, upper_bound, name) {
     'upper_bound' : upper_bound,
     'name' : name
   }
-  console.log(new_entry)
+  //console.log(new_entry)
   move_ui_nav_bar.push(new_entry)
   $('.eeSFL_Move_UI_Nav').empty()
   move_ui_nav_bar.forEach( function (obj) {
@@ -136,17 +136,32 @@ function update_move_ui_nav_bar(lvl, lower_bound, upper_bound, name) {
   });
 };
 function nav_bar_move(lower_bound, upper_bound, lvl, dir_name) {
+  select = document.getElementById('eeSFL_Destination')
   if ( move_ui_lvl > lvl ) {	
-	lvl_diff = parseInt(move_ui_lvl) - parseInt(lvl)
-	move_ui_lvl = lvl
-	move_ui_running_dir = traverse_dir(lower_bound, upper_bound, move_ui_lvl)
-        update_dir(move_ui_running_dir)
-        move_ui_nav_bar.splice(-lvl_diff-1)
-	update_move_ui_nav_bar(move_ui_lvl, lower_bound, upper_bound, dir_name)
-	select = document.getElementById('eeSFL_Destination')
-        warn_copy(eeSFL_Destinations[lower_bound])
+    lvl_diff = parseInt(move_ui_lvl) - parseInt(lvl)
+    move_ui_lvl = lvl
+    move_ui_running_dir = traverse_dir(lower_bound, upper_bound, move_ui_lvl)
+    if ( eeSFL_SubFolder != '/' && dir_name == 'Home') {
+    move_ui_running_dir[ eeSFL_Destinations.length + 1 ] = 'Main Folder' 
+    };
+    update_dir(move_ui_running_dir)
+    move_ui_nav_bar.splice(-lvl_diff-1)
+    update_move_ui_nav_bar(move_ui_lvl, lower_bound, upper_bound, dir_name)	
+    if ( eeSFL_SubFolder == '/' && dir_name == 'Home' ) {
+      select.value = ""
+    } else if ( eeSFL_SubFolder != '/' && dir_name == 'Home' ) {
+      select.value = "/"
+    } else {
+    warn_copy(eeSFL_Destinations[lower_bound])
+    }
+  } else if ( move_ui_lvl == lvl && dir_name == 'Home' && eeSFL_SubFolder == '/' ) {
+      select.value = ""
+  } else if ( move_ui_lvl == lvl && dir_name == 'Home' && eeSFL_SubFolder != '/' ) {
+      select.value = "/"
+  } else if ( move_ui_lvl == lvl ) {
+      warn_copy(eeSFL_Destinations[lower_bound])
   } else {
-  }
+  };
 };
 
 function initialize_move_ui() {
@@ -256,6 +271,7 @@ function warn_copy(dir_value) {
         select.value = dir_value
         return
       } else {
+	select.value = ""
         $('.eeSFL_Move_UI_Msgs_warn').empty()
         $('.eeSFL_Move_UI_Msgs_warn').prepend("<p>Unable to move to folder. Please choose another.</p><br>")
       }
