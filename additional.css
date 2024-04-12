@@ -12,6 +12,12 @@ iframe[src*="youtube"] {
 }
 }
 
+/*Lists*/
+#container ul li {
+	list-style: outside;
+	margin-left: 22px;
+}
+
 /*General Options SFL*/
 #eeSFL {
 	width: 75%;
