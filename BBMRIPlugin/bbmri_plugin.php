@@ -2,7 +2,7 @@
 /*
 Plugin Name: BBMRI Plugin
 Description: Handle URLs created by SFL to avoid issues using DomainFactory CDN. 301 Redirects are also handled here, as well as Login Page mods.
-Version: 1.7.1
+Version: 1.7.9.3
 Author: MUG Internal
 */
 
@@ -13,7 +13,7 @@ function intranet_stuff() {
         if (!is_user_logged_in()) {
             auth_redirect();
         } else {
-            wp_enqueue_script('url-replacer-script', plugins_url('/js/url-replace.js', __FILE__), array('jquery'), '1.8.1', true);
+            wp_enqueue_script('url-replacer-script', plugins_url('/js/url-replace.js', __FILE__), array('jquery'), '1.8.2', true);
         }
     }
 }
@@ -109,55 +109,56 @@ add_filter('login_headertext', 'my_login_logo_url_title');
 //Define an array for all URLs. Tested but deactivated until launch.
 function bbmri_redirect() {
     $redirects = array(
-        '/documents(.*)' => 'https://old.bbmri.at/documents$1',
-        '/webdav(.*)' => 'https://old.bbmri.at/webdav$1',
-        '/login(.*)' => 'https://bbmri.at/wp-login.php',
-        '/fr/group(.*)' => 'https://bbmri.at/wp-login.php',
-        '/news/-/asset_publisher/(.*)' => 'https://old.bbmri.at/news/-/asset_publisher/$1',
-        '/archive' => 'https://old.bbmri.at/archive',
-        '/news' => 'https://bbmri.at/news-events/',
-        '/catalog' => 'https://bbmri.at/for-researchers/',
-        '/biobank-cohorts' => 'https://bbmri.at/for-researchers/biobank-cohorts/',
-        '/quality-management' => 'https://bbmri.at/for-researchers/quality-management/',
-        '/calculator1' => 'https://bbmri.at/for-researchers/cost-calculator/',
-        '/services' => 'https://bbmri.at/for-researchers/services/',
-        '/biomaterial-mta' => 'https://bbmri.at/for-researchers/biomaterial-mta-ic/',
-        '/about-bbmri.at1' => 'https://bbmri.at/home/about/',
-        '/key-activites' => 'https://bbmri.at/home/goals-key-activities/',
-        '/partners' => 'https://bbmri.at/home/partners/',
-        '/governance' => 'https://bbmri.at/home/governance/',
-        '/bbmri.at-covid-19' => 'https://bbmri.at/home/covid-19/',
-        '/links' => 'https://bbmri.at/home/links/',
-        '/for-patients' => 'https://bbmri.at/for-citizens/',
-        '/biobanken' => 'https://bbmri.at/for-citizens/about-bbmri-at/',
-        '/de/biobanken' => 'https://bbmri.at/de/fuer-buerger/ueber-biobanken/',
-        '/about-biobanks' => 'https://bbmri.at/for-citizens/about-biobanks/',
-        '/citizen-expert-panel' => 'https://bbmri.at/for-citizens/citizen-expert-panel/',
-        '/faq' => 'https://bbmri.at/for-citizens/faq/',
-        '/web/guest//login' => 'https://bbmri.at/intranet/',
-        '/web/guest/login' => 'https://bbmri.at/intranet/',
-        '/publications' => 'https://bbmri.at/news/publications/',
-        '/projects' => 'https://bbmri.at/news/projects/',
-        '/videos' => 'https://bbmri.at/news/videos/',
-        '/courses' => 'https://bbmri.at/news/courses/',
-        '/jobs' => 'https://bbmri.at/news/jobs/',
-        '/contact' => 'https://bbmri.at/contact/',
-    );
+	'/documents(.*)' => 'https://bbmri.at/home/intranet',
+	'/webdav(.*)' => 'https://bbmri.at/home/intranet',
+	'/news/-/asset_publisher/(.*)' => 'https://bbmri.at/news-events',
+	'/web/guest/archive' => 'https://bbmri.at/news-events/news-archive',
+	'/bbmri.at/news/' => 'https://bbmri.at/news-events/',
+	'/bbmri.at/web/guest/' => 'https://bbmri.at/',
+	'/web/guest/catalog' => 'https://bbmri.at/for-researchers/',
+	'/web/guest/biobank-cohorts' => 'https://bbmri.at/for-researchers/biobank-cohorts/',
+	'/web/guest/quality-management/' => 'https://bbmri.at/for-researchers/quality-management/',
+	'calculator1' => 'https://bbmri.at/for-researchers/cost-calculator/',
+	'/web/guest/services/' => 'https://bbmri.at/for-researchers/services/',
+	'/web/guest/biomaterial-mta' => 'https://bbmri.at/for-researchers/biomaterial-mta-ic/',
+	'/about-bbmri.at1' => 'https://bbmri.at/home/about/',
+	'/web/guest/key-activites/' => 'https://bbmri.at/home/goals-key-activities/',
+	'/web/guest/partners/' => 'https://bbmri.at/home/partners/',
+	'/web/guest/governance/' => 'https://bbmri.at/home/governance/',
+	'/bbmri.at-covid-19' => 'https://bbmri.at/home/covid-19/',
+	'/web/guest/links/' => 'https://bbmri.at/home/links/',
+	'/for-patients' => 'https://bbmri.at/for-citizens/',
+	'/biobanken' => 'https://bbmri.at/for-citizens/about-bbmri-at/',
+	'/de/biobanken' => 'https://bbmri.at/de/fuer-buerger/ueber-biobanken/',
+	'/bbmri.at/about-biobanks/' => 'https://bbmri.at/for-citizens/about-biobanks/',
+	'/web/guest/citizen-expert-panel' => 'https://bbmri.at/for-citizens/citizen-expert-panel/',
+	'/web/guest/faq' => 'https://bbmri.at/for-citizens/faq/',
+	'/web/guest//login' => 'https://bbmri.at/home/intranet/',
+	'/web/guest/login' => 'https://bbmri.at/home/intranet/',
+	'/web/guest/publications' => 'https://bbmri.at/news/publications/',
+	'/web/guest/projects' => 'https://bbmri.at/news/projects/',
+	'/web/guest/videos' => 'https://bbmri.at/news/videos/',
+	'/web/guest/courses' => 'https://bbmri.at/news/courses/',
+	'/web/guest/jobs' => 'https://bbmri.at/news/jobs/',
+	'/web/guest/contact' => 'https://bbmri.at/contact/',
+	'/de/projects(.*)' => 'https://bbmri.at/de/news-2/projekte/',
+	'/projects(.*)' => 'https://bbmri.at/news-events/projects/',
+	'/login(.*)' => 'https://bbmri.at/wp-login.php',
+	'/fr/group(.*)' => 'https://bbmri.at/wp-login.php',
+	'/de/events(.*)' => 'https://bbmri.at/de/news-2',
+	'/events(.*)' => 'https://bbmri.at/news-events/',
+	);
 
-    //Read requested URL
-    $requested_url = $_SERVER['REQUEST_URI'];
-
-    //Handle wildcards. 
-    foreach ($redirects as $from => $to) {
-        $pattern = str_replace('/', '\/', $from);
-        $pattern = preg_replace('/\(\.\*\)/', '(.*)', $pattern);
-
-        //Match URL, include captured value from wildcard and perform a 301 redirect. 
-        if (preg_match('/^' . $pattern . '$/', $requested_url, $matches)) {
-            $redirect_url = preg_replace('/\$1/', $matches[1], $to); 
-            wp_redirect($redirect_url, 301);
-            exit();
-        }
+	//Read requested URL
+	$requested_url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+	foreach ( $redirects as $pattern => $target ) {
+		if ( $requested_url === $target ) {
+			continue;
+		}
+        	if ( preg_match('~' . $pattern . '~', $requested_url) ) {
+			wp_redirect($target, 301);
+			exit; 
+		}
     }
 }
 add_action('template_redirect', 'bbmri_redirect');
@@ -175,6 +176,7 @@ function sfla_auth_check() {
 }
 add_action('wp_loaded', 'sfla_auth_check');
 
-//Used for testing purposes on staging.!!!!
-add_filter( 'acf/the_field/escape_html_optin', '__return_true' );
+/*
+//Used for testing purposes on staging.
+add_filter( 'acf/the_field/escape_html_optin', '__return_true' );*/
 ?>
