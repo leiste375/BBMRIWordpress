@@ -1,7 +1,7 @@
 Simple File List:\
 	&emsp;SFL not playing nice with DF CDN. Working links injected via Plugin/JS.\
 	&emsp;File Types restricted. See upload field, or plugin config for a complete list. Individual uploads restricted to 10 files & 50MB.\
- 	&emsp;User Role "below" Editor redirected to Intranet Page after login via plugin. Non-authenticated users are redirected to login page when accessing intranet page. Fileshare Table only shown to logged in users, when redirect is circumvented.\
+ 	&emsp;Non-authenticated users are redirected to login page when accessing intranet page. Fileshare Table only shown to logged in users, when redirect is circumvented.\
 	&emsp;News Archive publicly available.\
 	&emsp;Storage size bugged in Dashboard (showing 11.36GB instead of 2.76GB as of 29.11.2023). Max Storage set 15GB, for an effective limit of 6,4GB.
  
