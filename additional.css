@@ -453,6 +453,10 @@ td:nth-child(3) > small:nth-child(5) > a:nth-child(3), td:nth-child(3) > small:n
 .sidebar_heading {
 	color: var(--main-blue)
 }
+.sidebar_outputBox {
+	max-height: 1500px;
+	overflow-y: scroll;
+}
 /*Banner Logo overflow bugfix*/
 @media only screen and (max-width: 640px) {
 	.banner_logo {
@@ -485,9 +489,19 @@ td:nth-child(3) > small:nth-child(5) > a:nth-child(3), td:nth-child(3) > small:n
     font-size: 17px;
     line-height: 20px;
 }
+.admin-bar .content-row-news_banner {
+	top: 105px !important;
+}
+.loginbutton a, .icon_search {
+	position: relative;
+	top: 2px;
+}
+.wpml-ls-legacy-list-horizontal {
+	border: none !important;
+}
 @media only screen and (min-width: 1470px){
 	.site_searchform{
-		right: 18px
+		right: 18px;
 	}
 }
 @media only screen and (max-width: 1470px){
@@ -499,8 +513,13 @@ td:nth-child(3) > small:nth-child(5) > a:nth-child(3), td:nth-child(3) > small:n
 		top: unset;
 	}
 }
-
-
+@media only screen and (max-width: 1175px) {
+	.loginbutton a. logingbutton_mobile a {
+		top: 0px; 
+	} .languagebox_mobile {
+		margin-bottom: 15px !important;
+	}
+}
 /*Additional UI elements*/
 .eeSFL_Move_UI_Class,
 .eeSFL_Move_UI_Msgs,
