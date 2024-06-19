@@ -50,7 +50,7 @@ Youtube Embeddings:\
 			if( function_exists('acf_register_block_type') ) {
 				acf_register_block_type(array(
 					'name'					=>	'picture_gallery',
-					'title'					=>	_('Bildergallerie'),
+					'title'					=>	_('Bildergalerie'),
 					'description'			=>	_('Erstellen einer Bildergalerie'),
 					'supports'				=>	array('editor'),
 					'mode'					=>	'auto',
