@@ -45,6 +45,30 @@ Youtube Embeddings:\
                     ));
                 }
             }
+	add_action('acf/init', 'picture_gallery');
+		function picture_gallery() {
+			if( function_exists('acf_register_block_type') ) {
+				acf_register_block_type(array(
+					'name'					=>	'picture_gallery',
+					'title'					=>	_('Bildergallerie'),
+					'description'			=>	_('Erstellen einer Bildergalerie'),
+					'supports'				=>	array('editor'),
+					'mode'					=>	'auto',
+					'render_template' 		=>	'custom-blocks/picture_gallery.php',
+					'category'				=>	'formatting',
+					'icon'					=>	'images-alt',
+					'keywords'				=>	array('gallery', 'galerie', 'bild', 'picture', 'pic', 'image'),
+					'example'				=>	array(
+						'attributes'			=>	array(
+							'mode'					=>	'preview',
+							'data'					=>	array(
+								'preview_image_help'	=>	'../wp_content/themes/bbmri_theme/custom-blocks/previmg/videos_display.jpg',
+							)
+						)
+					)
+				));
+			}
+		}
 ```
 Login Button added to header.php (same code inserted twice, for desktop & mobile respectively)
 ```
