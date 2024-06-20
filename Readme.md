@@ -69,6 +69,11 @@ Youtube Embeddings:\
 				));
 			}
 		}
+	//Enables dashicons for all users
+	function wp_load_dashicons(){
+	     wp_enqueue_style('dashicons');
+	 }
+	 add_action('wp_enqueue_scripts', 'wp_load_dashicons', 999);
 ```
 Login Button added to header.php (same code inserted twice, for desktop & mobile respectively)
 ```
