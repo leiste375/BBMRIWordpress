@@ -12,6 +12,135 @@ iframe[src*="youtube"] {
 }
 }
 
+/*Picture Gallery*/
+.pic-gallery-inner {
+	position: relative;
+	width: 100%;
+	margin: 0 auto;
+	overflow-x: auto;
+	overflow-y: visible;
+	white-space: nowrap;
+	scroll-snap-type: x proximity;
+	scroll-behavior: smooth;
+	text-align: center;
+}
+.pic-gallery-thumb {
+	display: inline-block;
+	text-align: center;
+}
+.pic-gallery-thumb img {
+	scroll-snap-align: center;
+	max-width: 100%;
+	max-height: 1024px;
+}
+.pic-gallery-thumb img:hover {
+  transform: scale(1.05);
+	transition: .4s;
+	overflow: visible;
+}
+.gallery-modal-title, .gallery-modal-caption, .gallery-modal-alt, .gallery-modal-descr {
+	line-height: 1;
+	display: flex;
+	justify-content: center;
+}
+.gallery-modal-title p, .gallery-modal-caption p, .gallery-modal-alt p, .gallery-modal-descr p, .gallery-modal-num{
+	font-size: 16px;
+	color: var(--white);
+	max-width: 65vw;
+	word-wrap: break-word;
+}
+.gallery-modal-title p {
+	padding-top: 5px;
+}
+.pic-gallery-modal {
+	display: none;
+	position: fixed;
+	z-index: 151;
+	left: 0;
+	top: 0px;
+	width: 100vw;
+	height: 100vh;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.8);
+	text-align: center;
+}
+@media screen and (max-width: 782px) {
+	.admin-bar .pic-gallery-modal-inner {
+		top: 66px;
+	}
+}
+@media screen and (min-width: 782px) {
+	.admin-bar .pic-gallery-modal-inner {
+		top: 52px;
+	}
+}
+.pic-gallery-modal-inner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position:relative;
+	margin: auto;
+	padding: 0;
+	width: fit-content;
+	height: fit-content;
+	text-align: center;
+	overflow-y: auto;
+	overflow-x: hidden;
+	top: 45px;
+}
+.pic-gallery-modal-inner img{
+	max-width: 65vw;
+	max-height: 65vh;
+	object-fit: contain;
+	margin: auto;
+	box-shadow: 0 0 2px 2px rgba(0,0,0,0.25);
+}
+.gallery-modal-header {
+	display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+	max-width: 65vw;
+  padding: 0 2px 5px 2px;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.gallery-modal-header button.close.cursor {
+	background: none;
+	border: none;
+	color: var(--white);
+}
+.gallery-modal-header button.close.cursor:hover, .galleryModalPrev:hover, .galleryModalNext:hover {
+	transition: .4s !important;
+	color: var(--main-orange) !important;
+}
+.gallery-modal-header button span {
+	font-size: 26px;
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+/*Attempted to align button midpoint to image midpoint. Ended up using Javascript in custom blocks code.*/
+.galleryModalPrev, .galleryModalNext {
+  position: absolute;
+  top: 50%;
+  /*transform: translateY(-50%);*/
+	background: rgba(0, 0, 0, 0.8);
+  color: var(--white);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 152;
+	font-size: 20px;
+}
+.galleryModalPrev {
+  left: -1px;
+}
+/*I don't know why. I don't want to know why. But unless I purposefully misalign it exactly by 1px, it will be wrong on a certain number of images.*/
+.galleryModalNext {
+  right: -1px;
+}
 /*Lists*/
 #container ul li {
 	list-style: outside;
