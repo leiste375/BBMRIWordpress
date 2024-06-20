@@ -17,9 +17,11 @@
 	$galleryModal = '';
 	$img_int = 0;
 	$images = get_field( 'picture_gallery' );
-	$img_count = count($images);
 	$size = 'thumbnail';
 	if ( $images ) :
+		if (is_countable($images) && count($images) > 0) :
+			$img_count = count($images);
+		endif;
 		foreach ( $images as $image ) :
 			$img_int += 1;
 			$img_id = $image['ID'];
@@ -30,7 +32,7 @@
 			$img_descr = $image['description'];
 
 		//Construct gallery content each array entry, to be inserted further down.
-		$galleryPreview .= "<div id = 'gallery-thumb-<$img_int' class = 'pic-gallery-thumb'>\n";
+		$galleryPreview .= "<div id = 'gallery-thumb-$img_int' class = 'pic-gallery-thumb'>\n";
 		$galleryPreview .= wp_get_attachment_image( $img_id, $size,"", ["class" => "gallery_img_thumbnail", "onclick" => "openGalleryModal();gallerySlide($img_int)"]);
 		$galleryPreview .= "</div>\n";
 
