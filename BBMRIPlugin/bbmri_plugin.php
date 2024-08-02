@@ -2,7 +2,7 @@
 /*
 Plugin Name: BBMRI Plugin
 Description: Handle URLs created by SFL to avoid issues using DomainFactory CDN. 301 Redirects are also handled here, as well as Login Page mods.
-Version: 1.7.9.3
+Version: 1.8.3
 Author: MUG Internal
 */
 
@@ -19,27 +19,6 @@ function intranet_stuff() {
 }
 add_action('template_redirect', 'intranet_stuff');
 
-/*
-/*Redirect users after login except admins (Source: https://stackoverflow.com/questions/8127453/redirect-after-login-on-wordpress). 
-Check if intranet page exists, and retrieve Post ID based on language. Redirect all non-admins to correct page.
-function login_redirect_plugin($redirect_to, $request, $user) {
-    if ( is_array($user->roles) && in_array('administrator', $user->roles) ) {
-        return admin_url();
-    } elseif ( is_array($user->roles) && in_array('editor', $user->roles) ) {
-        return admin_url();
-    } elseif ( function_exists('pll_get_post') ) {
-        $intranet_page = get_page_by_path('/home/intranet');
-        if ($intranet_page) {
-            $post_id = pll_get_post($intranet_page->ID);
-            return get_permalink($post_id);
-        }
-    } else {
-        return home_url();
-    }
-}
-add_filter('login_redirect', 'login_redirect_plugin', 10, 3);
-*/
-
 add_filter( 'login_redirect', function( $redirect_to, $requested_redirect_to, $user ) {
     if ( ! $requested_redirect_to ) {
         $referrer = wp_get_referer();
@@ -52,36 +31,6 @@ add_filter( 'login_redirect', function( $redirect_to, $requested_redirect_to, $u
     return $redirect_to;
 }, 10, 3 );
 
-/*
-/*Redirect users after login except admins (Source: https://stackoverflow.com/questions/8127453/redirect-after-login-on-wordpress). 
-Check if intranet page exists, and retrieve Post ID based on language. Redirect all non-admins to correct page.*/
-/*Redirect users after login except admins (Source: https://stackoverflow.com/questions/8127453/redirect-after-login-on-wordpress). 
-Check if intranet page exists, and retrieve Post ID based on language. Redirect all non-admins to correct page.
-function login_redirect_plugin($redirect_to, $requested_redirect_to, $user) {
-    #if ( ! is_wp_error ( $user )) {
-        if ( empty($requested_redirect_to) ) {
-            if ( is_array($user->roles) && in_array('administrator', $user->roles) ) {
-                return home_url();
-            } elseif ( is_array($user->roles) && in_array('editor', $user->roles) ) {
-                return admin_url();
-            } elseif ( function_exists('pll_get_post') ) {
-                $intranet_page = get_page_by_path('/home/intranet');
-                if ($intranet_page) {
-                    $post_id = pll_get_post($intranet_page->ID);
-                    return get_permalink($post_id);
-                }
-            } else {
-                return home_url();
-            }
-        } else {
-            return wp_get_referer();
-        }
-    }# else {
-    #    return home_url();
-    #}
-#}
-add_filter('login_redirect', 'login_redirect_plugin', 10, 3);
-*/
 //Modify Login Page. Source: https://codex.wordpress.org/Customizing_the_Login_Form
 function my_login_logo() { ?>
     <style type="text/css">
@@ -92,6 +41,10 @@ function my_login_logo() { ?>
 		background-size: 80px 80px;
 		background-repeat: no-repeat;
         	padding-bottom: 0px;
+        }
+        .wpml-login-ls {
+            display: flex;
+            justify-content: center;
         }
     </style>
 <?php }
@@ -109,54 +62,64 @@ add_filter('login_headertext', 'my_login_logo_url_title');
 //Define an array for all URLs. Tested but deactivated until launch.
 function bbmri_redirect() {
     $redirects = array(
-	'/documents(.*)' => 'https://bbmri.at/home/intranet',
-	'/webdav(.*)' => 'https://bbmri.at/home/intranet',
-	'/news/-/asset_publisher/(.*)' => 'https://bbmri.at/news-events',
-	'/web/guest/archive' => 'https://bbmri.at/news-events/news-archive',
-	'/bbmri.at/news/' => 'https://bbmri.at/news-events/',
-	'/bbmri.at/web/guest/' => 'https://bbmri.at/',
-	'/web/guest/catalog' => 'https://bbmri.at/for-researchers/',
-	'/web/guest/biobank-cohorts' => 'https://bbmri.at/for-researchers/biobank-cohorts/',
-	'/web/guest/quality-management/' => 'https://bbmri.at/for-researchers/quality-management/',
-	'calculator1' => 'https://bbmri.at/for-researchers/cost-calculator/',
-	'/web/guest/services/' => 'https://bbmri.at/for-researchers/services/',
-	'/web/guest/biomaterial-mta' => 'https://bbmri.at/for-researchers/biomaterial-mta-ic/',
-	'/about-bbmri.at1' => 'https://bbmri.at/home/about/',
-	'/web/guest/key-activites/' => 'https://bbmri.at/home/goals-key-activities/',
-	'/web/guest/partners/' => 'https://bbmri.at/home/partners/',
-	'/web/guest/governance/' => 'https://bbmri.at/home/governance/',
-	'/bbmri.at-covid-19' => 'https://bbmri.at/home/covid-19/',
-	'/web/guest/links/' => 'https://bbmri.at/home/links/',
-	'/for-patients' => 'https://bbmri.at/for-citizens/',
-	'/biobanken' => 'https://bbmri.at/for-citizens/about-bbmri-at/',
-	'/de/biobanken' => 'https://bbmri.at/de/fuer-buerger/ueber-biobanken/',
-	'/bbmri.at/about-biobanks/' => 'https://bbmri.at/for-citizens/about-biobanks/',
-	'/web/guest/citizen-expert-panel' => 'https://bbmri.at/for-citizens/citizen-expert-panel/',
-	'/web/guest/faq' => 'https://bbmri.at/for-citizens/faq/',
-	'/web/guest//login' => 'https://bbmri.at/home/intranet/',
-	'/web/guest/login' => 'https://bbmri.at/home/intranet/',
-	'/web/guest/publications' => 'https://bbmri.at/news/publications/',
-	'/web/guest/projects' => 'https://bbmri.at/news/projects/',
-	'/web/guest/videos' => 'https://bbmri.at/news/videos/',
-	'/web/guest/courses' => 'https://bbmri.at/news/courses/',
-	'/web/guest/jobs' => 'https://bbmri.at/news/jobs/',
-	'/web/guest/contact' => 'https://bbmri.at/contact/',
-	'/de/projects(.*)' => 'https://bbmri.at/de/news-2/projekte/',
-	'/projects(.*)' => 'https://bbmri.at/news-events/projects/',
-	'/login(.*)' => 'https://bbmri.at/wp-login.php',
-	'/fr/group(.*)' => 'https://bbmri.at/wp-login.php',
-	'/de/events(.*)' => 'https://bbmri.at/de/news-2',
-	'/events(.*)' => 'https://bbmri.at/news-events/',
+	'/documents(.*)' => '/home/intranet',
+	'/webdav(.*)' => '/home/intranet',
+	'/news/-/asset_publisher/(.*)' => '/news-events',
+	'/web/guest/archive' => '/news-events/news-archive',
+	'/bbmri.at/news/' => '/news-events/',
+	'/bbmri.at/web/guest/' => '/',
+	'/web/guest/catalog' => '/for-researchers/',
+	'/web/guest/biobank-cohorts' => '/for-researchers/biobank-cohorts/',
+	'/web/guest/quality-management/' => '/for-researchers/quality-management/',
+	'calculator1' => '/for-researchers/cost-calculator/',
+	'/web/guest/services/' => '/for-researchers/services/',
+	'/web/guest/biomaterial-mta' => '/for-researchers/biomaterial-mta-ic/',
+	'/about-bbmri.at1' => '/home/about/',
+	'/web/guest/key-activites/' => '/home/goals-key-activities/',
+	'/web/guest/partners/' => '/home/partners/',
+	'/web/guest/governance/' => '/home/governance/',
+	'/bbmri.at-covid-19' => '/home/covid-19/',
+	'/web/guest/links/' => '/home/links/',
+	'/for-patients' => '/for-citizens/',
+	'/biobanken' => '/for-citizens/about-bbmri-at/',
+	'/de/biobanken' => '/de/fuer-buerger/ueber-biobanken/',
+	'/bbmri.at/about-biobanks/' => '/for-citizens/about-biobanks/',
+	'/web/guest/citizen-expert-panel' => '/for-citizens/citizen-expert-panel/',
+	'/web/guest/faq' => '/for-citizens/faq/',
+	'/web/guest//login' => '/home/intranet/',
+	'/web/guest/login' => '/home/intranet/',
+	'/web/guest/publications' => '/news/publications/',
+	'/web/guest/projects' => '/news/projects/',
+	'/web/guest/videos' => '/news/videos/',
+	'/web/guest/courses' => '/news/courses/',
+	'/web/guest/jobs' => '/news/jobs/',
+	'/web/guest/contact' => '/contact/',
+	'/de/projects(.*)' => '/de/news-2/projekte/',
+	'/projects(.*)' => '/news-events/projects/',
+	'/login(.*)' => '/wp-login.php',
+	'/fr/group(.*)' => '/wp-login.php',
+	'/de/events(.*)' => '/de/news-2',
+	'/events(.*)' => '/news-events/',
+	'/de/cohorts(.*)' => '/de/fuer-forscherinnen/biobank-cohorts/',
+	'/cohorts(.*)' => '/for-researchers/biobank-cohorts/',
 	);
 
 	//Read requested URL
 	$requested_url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 	foreach ( $redirects as $pattern => $target ) {
-		if ( $requested_url === $target ) {
+		if ( $requested_url === home_url($target)) {
 			continue;
-		}
-        	if ( preg_match('~' . $pattern . '~', $requested_url) ) {
-			wp_redirect($target, 301);
+        }
+        if ( preg_match('~' . $pattern . '~', $requested_url) ) {
+            //Redirect cohort permalinks to anchor on cohorts page.
+            if ( strpos( $pattern, '/de/cohorts' ) === 0 || strpos( $pattern, '/cohorts' ) === 0) {
+                $post_title = trim($matches[1], '/');
+                $post_id = url_to_postid($requested_url);
+                if ( $post_id ) {
+                    $target = $target . '#' . $post_id;
+                }
+            }
+			wp_redirect(home_url($target), 301);
 			exit; 
 		}
     }
@@ -174,9 +137,4 @@ function sfla_auth_check() {
         }
     }
 }
-add_action('wp_loaded', 'sfla_auth_check');
-
-/*
-//Used for testing purposes on staging.
-add_filter( 'acf/the_field/escape_html_optin', '__return_true' );*/
 ?>
